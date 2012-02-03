@@ -25,6 +25,8 @@ What's in this? You'll find tasks and informations to manage various stuff with 
 
 Check the provided sample configuration (config-samples/unicorn.rb)
 
+@see http://ariejan.net/2011/09/14/lighting-fast-zero-downtime-deployments-with-git-capistrano-nginx-and-unicorn
+
 ## PHP
 
 ### PHP-fpm reload

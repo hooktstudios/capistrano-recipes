@@ -19,6 +19,25 @@ What's in this? You'll find tasks and informations to manage various stuff with 
     * SSH forwarding
     * Crontab reload
 
+## Typical usage
+
+How to use theses recipes in your recipe?
+
+1 - Add this repository as as submodule
+
+    git submodule add git://github.com/hooktstudios/capistrano-recipes.git config/capistrano-recipes
+
+2 - Add the desired recipes in your deploy.rb (remember cap relative path is the project root), ex:
+
+    load 'config/capistrano-recipes/apps/wordpress'
+    load 'config/capistrano-recipes/utils/assets'
+    after "deploy:update_code", "assets:sass_compile"
+
+Important Notes :
+
+- Apps recipes configures/overwrites the default behaviour events
+- Utils recipes do not configure any event, you must specify them, ex. after "deploy:update_code", "assets:sass_compile"
+
 ## Ruby
 
 ### Unicorn Zero-Downtime deployments

@@ -8,9 +8,9 @@ What's in this? You'll find tasks and informations to manage various stuff with 
     * Unicorn (fast & zero-downtime deployments)
     * ModRails (quick & easy)
 * PHP apps
-    * Twig
-    * PHP-FPM
     * CakePHP
+    * Lithium
+    * PHP-FPM
 * Assets management
     * LESS precompile
     * SASS precompile
@@ -19,11 +19,15 @@ What's in this? You'll find tasks and informations to manage various stuff with 
     * SSH forwarding
     * Crontab reload
 
-## Unicorn Zero-Downtime deployments
+## Ruby
+
+### Unicorn Zero-Downtime deployments
 
 Check the provided sample configuration (config-samples/unicorn.rb)
 
-## PHP-fpm reload
+## PHP
+
+### PHP-fpm reload
 
 You may need to reload php-fpm if you are using APC or other accelerators because of symlinks caching issues.
 
@@ -31,7 +35,7 @@ Your deployment user will need permission to reload php-fpm. You may edit your /
 
     userx ALL=(root) NOPASSWD: /usr/sbin/service php5-fpm reload
 
-## CakePHP recipe
+### CakePHP recipe
 
 To set database configuration and other environment configurations, we use a symlinked shared config file named bootstrap.local.php.
 

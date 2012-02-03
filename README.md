@@ -12,9 +12,12 @@ What's in this? You'll find tasks and informations to manage various stuff with 
     * PHP-FPM
     * CakePHP
 * Assets management
-    * Minify
-    * LESS
-    * SASS
+    * LESS precompile
+    * SASS precompile
 * Other nice stuff
     * Multistages
     * SSH forwarding
+
+## Unicorn Zero-Downtime deployments
+
+Check the provided sample configuration (config-samples/unicorn.rb)

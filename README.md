@@ -22,6 +22,14 @@ What's in this? You'll find tasks and informations to manage various stuff with 
 
 Check the provided sample configuration (config-samples/unicorn.rb)
 
+## PHP-fpm reload
+
+You may need to reload php-fpm if you are using APC or other accelerators because of symlinks caching issues.
+
+Your deployment user will need permission to reload php-fpm. You may edit your /etc/sudoers like so for userx:
+
+    userx ALL=(root) NOPASSWD: /usr/sbin/service php5-fpm reload
+
 ## CakePHP recipe
 
 To set database configuration and other environment configurations, we use a symlinked shared config file named bootstrap.local.php.

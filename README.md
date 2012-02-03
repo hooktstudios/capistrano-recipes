@@ -14,9 +14,10 @@ What's in this? You'll find tasks and informations to manage various stuff with 
 * Assets management
     * LESS precompile
     * SASS precompile
-* Other nice stuff
+* Other
     * Multistages
     * SSH forwarding
+    * Crontab reload
 
 ## Unicorn Zero-Downtime deployments
 

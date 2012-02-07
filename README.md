@@ -44,14 +44,20 @@ You'll find tasks and informations to manage various stuff with capistrano like 
 * Assets management
     * LESS precompile
     * SASS precompile
-* Other recipes & tricks
+* Other
     * Crontab reload
-    * Multistages
-    * SSH forwarding
 
 More details on somes of the recipes bellow.
 
-## Ruby
+## Guidelines for Easy Deployments
+
+* Deploy via remote-cache, much faster/better `set :deploy_via, :remote_cache`.
+* Use SSH forwarding instead of custom deployments keys with `ssh_options[:forward_agent] = true`. It will uses your local SSH key to access the repository from the remote server.
+* Multistage is much easier with `require 'capistrano/ext/multistage'` and `set :capistrano_extensions, [:multistage]`. 
+see https://github.com/capistrano/capistrano/wiki/2.x-Multistage-Extension.
+* Use bundler extension for rails app, with  `require "bundler/capistrano"` and `after 'deploy', 'bundle:install'`.
+
+## Ruby Recipes
 
 ### Unicorn Zero-Downtime Deployments
 
@@ -59,7 +65,7 @@ Check the provided sample configuration (config-samples/unicorn.rb)
 
 @see http://ariejan.net/2011/09/14/lighting-fast-zero-downtime-deployments-with-git-capistrano-nginx-and-unicorn
 
-## PHP
+## PHP Recipes
 
 ### PHP-fpm Reload
 

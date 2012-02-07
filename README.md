@@ -1,25 +1,6 @@
-# HS standard Capistrano recipes
+# HS Standard Capistrano Recipes
 
-What's in this? You'll find tasks and informations to manage various stuff with capistrano like :
-
-* Ruby apps
-    * RVM (ruby version manager : run proper ruby version for your deployment)
-    * Bundler (app packages management)
-    * Unicorn (fast & zero-downtime deployments)
-    * ModRails (quick & easy)
-* PHP apps
-    * CakePHP
-    * Lithium
-    * PHP-FPM
-* Assets management
-    * LESS precompile
-    * SASS precompile
-* Other
-    * Multistages
-    * SSH forwarding
-    * Crontab reload
-
-## Typical usage
+## Typical Usage
 
 How to use theses recipes in your recipe?
 
@@ -33,14 +14,46 @@ How to use theses recipes in your recipe?
     load 'config/capistrano-recipes/utils/assets'
     after "deploy:update_code", "assets:sass_compile"
 
-Important Notes :
+## Important Notes
 
-- Apps recipes configures/overwrites the default behaviour events
-- Utils recipes do not configure any event, you must specify them, ex. after "deploy:update_code", "assets:sass_compile"
+### Apps Recipes
+
+Theses recipes configure and/or overwrite Capistrano default behaviour events as required by those kind of apps or deployments.
+
+### Utils Recipes
+
+Theses recipes do not configure any event, you must specify it in your deploy.rb.
+
+Ex. after "deploy:update_code", "assets:sass_compile".
+
+Plug them in your recipe as needed.
+
+## What's in this? 
+
+You'll find tasks and informations to manage various stuff with capistrano like :
+
+* Ruby apps
+    * RVM (ruby version manager : run proper ruby version for your deployment)
+    * Bundler (app packages management)
+    * Unicorn (fast & zero-downtime deployments)
+    * ModRails (quick & easy)
+* PHP apps
+    * CakePHP
+    * Lithium
+    * PHP-FPM
+* Assets management
+    * LESS precompile
+    * SASS precompile
+* Other recipes & tricks
+    * Crontab reload
+    * Multistages
+    * SSH forwarding
+
+More details on somes of the recipes bellow.
 
 ## Ruby
 
-### Unicorn Zero-Downtime deployments
+### Unicorn Zero-Downtime Deployments
 
 Check the provided sample configuration (config-samples/unicorn.rb)
 
@@ -48,7 +61,7 @@ Check the provided sample configuration (config-samples/unicorn.rb)
 
 ## PHP
 
-### PHP-fpm reload
+### PHP-fpm Reload
 
 You may need to reload php-fpm if you are using APC or other accelerators because of symlinks caching issues.
 
@@ -56,7 +69,7 @@ Your deployment user will need permission to reload php-fpm. You may edit your /
 
     userx ALL=(root) NOPASSWD: /usr/sbin/service php5-fpm reload
 
-### CakePHP recipe
+### CakePHP
 
 To set database configuration and other environment configurations, we use a symlinked shared config file named bootstrap.local.php.
 

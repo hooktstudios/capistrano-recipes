@@ -21,6 +21,21 @@ namespace :deploy do
   task :restart, :roles => :app do
     # do nothing but overide the default
   end
+
+  desc "This is here to overide the original task"
+  task :start, :roles => :app, :except => { :no_release => true } do
+    # do nothing
+  end
+
+  desc "This is here to overide the original task"
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    # do nothing
+  end
+
+  desc "This is here to overide the original task"
+  task :finalize_update, :roles => :app, :except => { :no_release => true } do
+    # do nothing
+  end
 end
 
 namespace :lithium do

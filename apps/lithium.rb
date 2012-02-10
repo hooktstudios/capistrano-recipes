@@ -2,7 +2,7 @@
 set :lithium_app_path, "app"
 # Shared folders
 set :app_shared_folders, [
-  'app/resources',
+  'app/resources/tmp',
    ]
 set :app_shared_create, app_shared_folders + [
   'app/config/bootstrap',

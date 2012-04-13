@@ -2,13 +2,11 @@
 
 ## Typical Usage
 
-How to use theses recipes in your recipe?
-
 1 - Add this repository as as submodule
 
     git submodule add git://github.com/hooktstudios/capistrano-recipes.git config/capistrano-recipes
 
-2 - Add the desired recipes in your deploy.rb (remember cap relative path is the project root), ex:
+2 - Add the desired recipes in your deploy.rb (remember cap relative path is the project root), ie:
 
     load 'config/capistrano-recipes/apps/wordpress'
     load 'config/capistrano-recipes/utils/assets'
@@ -20,17 +18,17 @@ How to use theses recipes in your recipe?
 
 Theses recipes configure and/or overwrite Capistrano default behaviour events as required by those kind of apps or deployments.
 
-### Utils Recipes
+### Util Recipes
 
 Theses recipes do not configure any event, you must specify it in your deploy.rb.
 
-Ex. after "deploy:update_code", "assets:sass_compile".
+Ex. `after "deploy:update_code", "assets:sass_compile"`.
 
 Plug them in your recipe as needed.
 
 ## What's in this? 
 
-You'll find tasks and informations to manage various stuff with capistrano like :
+You'll find tasks and informations to manage various tasks with capistrano such as :
 
 * Ruby apps
     * RVM (ruby version manager : run proper ruby version for your deployment)
@@ -47,7 +45,7 @@ You'll find tasks and informations to manage various stuff with capistrano like 
 * Other
     * Crontab reload
 
-More details on somes of the recipes bellow.
+More details on some of the recipes below.
 
 ## Guidelines for Easy Deployments
 
@@ -77,11 +75,9 @@ Your deployment user will need permission to reload php-fpm. You may edit your /
 
 ### CakePHP
 
-To set database configuration and other environment configurations, we use a symlinked shared config file named bootstrap.local.php.
+To set environment specific configurations, we use a symlinked shared config file : `shared/app/config/bootstrap.local.php`.  
+You may add this to the default CakePHP bootstrap file to load environement specific configurations :
 
-You may add this to the default CakePHP bootstrap file to include the deployment configs :
-
-    if(file_exists(APP . DS . 'config' . DS . 'bootstrap.local.php')) 
-    {
+    if(file_exists(APP . DS . 'config' . DS . 'bootstrap.local.php')) {
     	include(APP . DS . 'config' . DS . 'bootstrap.local.php');
     }

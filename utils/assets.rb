@@ -9,6 +9,6 @@ namespace :assets do
 
   desc "Compile SASS files"
   task :sass_compile, :roles => :app do
-    run "for file in `find #{release_path} -name '*.scss' -o -name '*.sass'`; do #{sass_path} $file:${file%.scss}.css; done"
+    run "for file in `find #{release_path} -name '*.scss' -o -name '*.sass'`; do #{sass_path} $file:${file%.scss}.css --style compressed; done"
   end
 end

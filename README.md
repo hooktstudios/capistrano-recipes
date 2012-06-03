@@ -61,8 +61,6 @@ see https://github.com/capistrano/capistrano/wiki/2.x-Multistage-Extension.
 
 Check the provided sample configuration (config-samples/unicorn.rb)
 
-@see http://ariejan.net/2011/09/14/lighting-fast-zero-downtime-deployments-with-git-capistrano-nginx-and-unicorn
-
 ## PHP Recipes
 
 ### PHP-fpm Reload

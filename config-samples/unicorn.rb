@@ -1,3 +1,7 @@
+# Credits to Ariejan de Vroom (ariejan@ariejan.net)
+#
+# @see http://ariejan.net/2011/09/14/lighting-fast-zero-downtime-deployments-with-git-capistrano-nginx-and-unicorn
+
 rails_env = 'production'
 
 app_base_path = File.join('/home/user/website')

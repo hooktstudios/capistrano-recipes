@@ -1,5 +1,7 @@
 # HS Standard Capistrano Recipes
 
+Mostly intented for internal use at HS, but we publish it as some parts might be usefull to the community and we use stuff from the community.
+
 ## Typical Usage
 
 1 - Add this repository as as submodule
@@ -18,13 +20,21 @@
 
 Theses recipes configure and/or overwrite Capistrano default behaviour events as required by those kind of apps or deployments.
 
-### Util Recipes
+### Utils Recipes
 
 Theses recipes do not configure any event, you must specify it in your deploy.rb.
 
 Ex. `after "deploy:update_code", "assets:sass_compile"`.
 
 Plug them in your recipe as needed.
+
+### Tips for Easy Deployments
+
+* Deploy via remote-cache, much faster/better `set :deploy_via, :remote_cache`.
+* Use SSH forwarding instead of custom deployments keys with `ssh_options[:forward_agent] = true`. It will uses your local SSH key to access the repository from the remote server.
+* Multistage is much easier with `require 'capistrano/ext/multistage'` and `set :capistrano_extensions, [:multistage]`. 
+see https://github.com/capistrano/capistrano/wiki/2.x-Multistage-Extension.
+* Use bundler extension for rails app, with  `require "bundler/capistrano"` and `after 'deploy', 'bundle:install'`.
 
 ## What's in this? 
 
@@ -46,14 +56,6 @@ You'll find tasks and informations to manage various tasks with capistrano such 
     * Crontab reload
 
 More details on some of the recipes below.
-
-## Guidelines for Easy Deployments
-
-* Deploy via remote-cache, much faster/better `set :deploy_via, :remote_cache`.
-* Use SSH forwarding instead of custom deployments keys with `ssh_options[:forward_agent] = true`. It will uses your local SSH key to access the repository from the remote server.
-* Multistage is much easier with `require 'capistrano/ext/multistage'` and `set :capistrano_extensions, [:multistage]`. 
-see https://github.com/capistrano/capistrano/wiki/2.x-Multistage-Extension.
-* Use bundler extension for rails app, with  `require "bundler/capistrano"` and `after 'deploy', 'bundle:install'`.
 
 ## Ruby Recipes
 

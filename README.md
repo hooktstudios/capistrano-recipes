@@ -81,3 +81,6 @@ You may add this to the default CakePHP bootstrap file to load environement spec
     if(file_exists(APP . DS . 'config' . DS . 'bootstrap.local.php')) {
     	include(APP . DS . 'config' . DS . 'bootstrap.local.php');
     }
+
+## License
+capistrano-recipes is published under the [MIT License](https://raw.github.com/hooktstudios/capistrano-recipes/master/LICENSE).

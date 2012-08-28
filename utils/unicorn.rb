@@ -1,3 +1,7 @@
+set :unicorn_cmd, "unicorn"
+# For rails application, use :
+# set :unicorn_cmd, "unicorn_rails"
+
 namespace :unicorn do
   desc "Restart the server (unicorn)"
   task :restart do
@@ -6,7 +10,7 @@ namespace :unicorn do
 
   desc "Start the server (unicorn)"
   task :start do
-    run "cd #{current_path} && bundle exec unicorn_rails -D -E #{rails_env} -c config/unicorn.rb"
+    run "cd #{current_path} && bundle exec #{unicorn_cmd} -D -E #{rails_env} -c config/unicorn.rb"
   end
 
   desc "Stop the server (unicorn)"

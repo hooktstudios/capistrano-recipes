@@ -7,7 +7,7 @@ rails_env = 'production'
 app_base_path = File.join('/home/user/website')
 shared_path = File.join(app_base_path, 'shared')
 app_path = File.join(app_base_path, 'current')
-pid_path = File.join(shared_path, 'tmp', 'pids', 'unicorn.pid')
+pid_path = File.join(shared_path, 'pids', 'unicorn.pid')
 
 worker_processes 2
 

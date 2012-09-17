@@ -5,7 +5,7 @@ set :unicorn_cmd, "unicorn"
 namespace :unicorn do
   desc "Restart the server (unicorn)"
   task :restart do
-    run "if [ `cat #{shared_path}/tmp/pids/unicorn.pid` ]; then kill -s USR2 $(cat #{shared_path}/tmp/pids/unicorn.pid); fi"
+    run "if [ `cat #{shared_path}/pids/unicorn.pid` ]; then kill -s USR2 $(cat #{shared_path}/pids/unicorn.pid); fi"
   end
 
   desc "Start the server (unicorn)"
@@ -15,6 +15,6 @@ namespace :unicorn do
 
   desc "Stop the server (unicorn)"
   task :stop do
-    run "if [ `cat #{shared_path}/tmp/pids/unicorn.pid` ]; then kill $(cat #{shared_path}/tmp/pids/unicorn.pid); fi"
+    run "if [ `cat #{shared_path}/pids/unicorn.pid` ]; then kill $(cat #{shared_path}/pids/unicorn.pid); fi"
   end
 end

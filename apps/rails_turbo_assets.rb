@@ -7,7 +7,7 @@
 
 set(:skip_assets_precompile) do
   cached_copy = File.join(shared_path, fetch(:repository_cache, "cached-copy"))
-  capture("cd #{cached_copy} && #{source.log(current_revision, real_revision)} --oneline vendor/assets/ app/assets/ | wc -l").to_i == 0
+  capture("cd #{cached_copy} && #{source.log(current_revision, real_revision)} --oneline vendor/assets/ app/assets/ Gemfile.lock | wc -l").to_i == 0
 end
 
 namespace :deploy do

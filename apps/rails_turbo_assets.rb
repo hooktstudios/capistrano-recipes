@@ -6,11 +6,15 @@
 #   (otherwise real_revision might not be yet fetch on the cached copy)
 
 set(:skip_assets_precompile) do
-  cached_copy = File.join(shared_path, fetch(:repository_cache, "cached-copy"))
-  extra = (extra_assets_paths || []).join(' ')
-  capture("cd #{cached_copy} && #{source.log(current_revision, real_revision)} " +
-          "--oneline vendor/assets/ app/assets/ Gemfile.lock #{extra} | wc -l"
-  ).to_i == 0
+  if releases.length == 0
+    false
+  else
+    cached_copy = File.join(shared_path, fetch(:repository_cache, "cached-copy"))
+    extra = respond_to?(:extra_assets_paths) ? extra_assets_paths.join(' ') : ''
+    capture("cd #{cached_copy} && #{source.log(current_revision, real_revision)} " +
+            "--oneline vendor/assets/ app/assets/ Gemfile.lock #{extra} | wc -l"
+    ).to_i == 0
+  end
 end
 
 namespace :deploy do

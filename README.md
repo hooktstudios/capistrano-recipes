@@ -90,4 +90,4 @@ See [CONTRIBUTING.md](https://github.com/hooktstudios/capistrano-recipes/blob/ma
 
 ![hooktstudios](http://hooktstudios.com/logo.png)
 
-[capistrano-recipes](https://rubygems.org/gems/capistrano-recipes) is maintained and funded by [hooktstudios](https://github.com/hooktstudios)
+capistrano-recipes is maintained and funded by [hooktstudios](https://github.com/hooktstudios)

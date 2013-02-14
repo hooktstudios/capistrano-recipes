@@ -91,7 +91,3 @@ See [CONTRIBUTING.md](https://github.com/hooktstudios/capistrano-recipes/blob/ma
 ![hooktstudios](http://hooktstudios.com/logo.png)
 
 [capistrano-recipes](https://rubygems.org/gems/capistrano-recipes) is maintained and funded by [hooktstudios](https://github.com/hooktstudios)
-
-## License
-
-capistrano-recipes is published under the [MIT License](https://raw.github.com/hooktstudios/capistrano-recipes/master/LICENSE).
